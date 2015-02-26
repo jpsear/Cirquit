@@ -35,7 +35,6 @@
 		B0051916199BDB2E0070659F /* AVFoundation RecorderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AVFoundation RecorderTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B005191B199BDB2E0070659F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B005191C199BDB2E0070659F /* AVFoundation_RecorderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVFoundation_RecorderTests.swift; sourceTree = "<group>"; };
-		B0051928199BDECB0070659F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B005192A199BDFAC0070659F /* RecordingsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordingsCollectionViewController.swift; sourceTree = "<group>"; };
 		B005192C199BE0F40070659F /* RecordingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordingCollectionViewCell.swift; sourceTree = "<group>"; };
 		B075BD96199C268800CDA3AB /* RecorderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecorderViewController.swift; sourceTree = "<group>"; };
@@ -59,11 +58,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		945DA1A91A9FAECC00712030 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B0051909199BDB2E0070659F /* AppDelegate.swift */,
+				B075BD96199C268800CDA3AB /* RecorderViewController.swift */,
+				B005192C199BE0F40070659F /* RecordingCollectionViewCell.swift */,
+				B005192A199BDFAC0070659F /* RecordingsCollectionViewController.swift */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		945DA1AA1A9FAED400712030 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B0051910199BDB2E0070659F /* Images.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		B00518FB199BDB2E0070659F = {
 			isa = PBXGroup;
 			children = (
-				B0051928199BDECB0070659F /* README.md */,
-				B0051906199BDB2E0070659F /* AVFoundation Recorder */,
+				B0051906199BDB2E0070659F /* Cirquit */,
 				B0051919199BDB2E0070659F /* AVFoundation RecorderTests */,
 				B0051905199BDB2E0070659F /* Products */,
 			);
@@ -78,23 +95,21 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B0051906199BDB2E0070659F /* AVFoundation Recorder */ = {
+		B0051906199BDB2E0070659F /* Cirquit */ = {
 			isa = PBXGroup;
 			children = (
-				B0051909199BDB2E0070659F /* AppDelegate.swift */,
-				B005190D199BDB2E0070659F /* Main.storyboard */,
-				B0051910199BDB2E0070659F /* Images.xcassets */,
+				945DA1A91A9FAECC00712030 /* Classes */,
+				945DA1AA1A9FAED400712030 /* Resources */,
 				B0051907199BDB2E0070659F /* Supporting Files */,
-				B075BD96199C268800CDA3AB /* RecorderViewController.swift */,
-				B005192C199BE0F40070659F /* RecordingCollectionViewCell.swift */,
-				B005192A199BDFAC0070659F /* RecordingsCollectionViewController.swift */,
 			);
+			name = Cirquit;
 			path = "AVFoundation Recorder";
 			sourceTree = "<group>";
 		};
 		B0051907199BDB2E0070659F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B005190D199BDB2E0070659F /* Main.storyboard */,
 				B0051908199BDB2E0070659F /* Info.plist */,
 			);
 			name = "Supporting Files";
