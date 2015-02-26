@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>C4E5B042-6744-4816-AFE4-1B47CDABAC5A</string>
+	<key>IDESourceControlProjectName</key>
+	<string>AVFoundation Recorder</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>4C23517C9D8D7FFC0C1B4EA7FECEE5823D615A60</key>
+		<string>https://github.com/jpsear/Cirquit.git</string>
+		<key>AD05DC683A9A287CB0634B653B36779A1AA74709</key>
+		<string>https://bitbucket.org/ryanep/draw-game.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>AVFoundationRecorder-master/AVFoundation Recorder.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>4C23517C9D8D7FFC0C1B4EA7FECEE5823D615A60</key>
+		<string>../../..</string>
+		<key>AD05DC683A9A287CB0634B653B36779A1AA74709</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/jpsear/Cirquit.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>4C23517C9D8D7FFC0C1B4EA7FECEE5823D615A60</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>AD05DC683A9A287CB0634B653B36779A1AA74709</string>
+			<key>IDESourceControlWCCName</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>4C23517C9D8D7FFC0C1B4EA7FECEE5823D615A60</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Cirquit</string>
+		</dict>
+	</array>
+</dict>
+</plist>

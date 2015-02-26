@@ -13,6 +13,15 @@
       buildConfiguration = "Debug">
       <Testables>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "B0051903199BDB2E0070659F"
+            BuildableName = "AVFoundation Recorder.app"
+            BlueprintName = "AVFoundation Recorder"
+            ReferencedContainer = "container:AVFoundation Recorder.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
@@ -23,6 +32,15 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "B0051903199BDB2E0070659F"
+            BuildableName = "AVFoundation Recorder.app"
+            BlueprintName = "AVFoundation Recorder"
+            ReferencedContainer = "container:AVFoundation Recorder.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -32,6 +50,15 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "B0051903199BDB2E0070659F"
+            BuildableName = "AVFoundation Recorder.app"
+            BlueprintName = "AVFoundation Recorder"
+            ReferencedContainer = "container:AVFoundation Recorder.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
