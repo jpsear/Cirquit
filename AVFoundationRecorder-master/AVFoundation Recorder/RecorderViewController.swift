@@ -28,6 +28,8 @@ class RecorderViewController: UIViewController {
     
     @IBOutlet var playButton: UIButton!
     
+    @IBOutlet var btnConversionTest: UIButton!
+    
     @IBOutlet var statusLabel: UILabel!
     
     var meterTimer:NSTimer!
@@ -121,6 +123,14 @@ class RecorderViewController: UIViewController {
     
     @IBAction func play(sender: UIButton) {
         play()
+    }
+    
+    @IBAction func btnConversionTest(sender: UIButton) {
+
+        var instanceOfCustomObject: SoundFactory = SoundFactory()
+        var soundAsString = instanceOfCustomObject.convertSoundToString("Sound1")
+        instanceOfCustomObject.convertStringToSound(soundAsString, givingItTheFileName: "/TestConversion.m4a")
+    
     }
     
     func play() {
@@ -287,6 +297,8 @@ class RecorderViewController: UIViewController {
     func foreground(notification:NSNotification) {
         println("foreground")
     }
+    
+    
     
     
     func routeChange(notification:NSNotification) {

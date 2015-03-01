@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ZfM-S9-gIr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ZfM-S9-gIr">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -68,11 +69,21 @@
                                     <action selector="stop:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OVF-bL-Q72"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ogs-aM-ie2">
+                                <rect key="frame" x="223" y="404" width="110" height="30"/>
+                                <state key="normal" title="Conversion Test">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnConversionTest:" destination="BYZ-38-t0r" eventType="touchDown" id="Mdb-FZ-JvZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Ho9-1u-dEg"/>
                     <connections>
+                        <outlet property="btnConversionTest" destination="Ogs-aM-ie2" id="nKh-0A-C4E"/>
                         <outlet property="playButton" destination="kI1-0Y-yEN" id="kru-li-nbE"/>
                         <outlet property="recordButton" destination="YWe-rD-5VP" id="ew0-OE-UxJ"/>
                         <outlet property="statusLabel" destination="epE-QD-OIR" id="3dN-pr-aeO"/>
