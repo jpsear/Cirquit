@@ -1,0 +1,505 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7B1EB3991AA8E76700A0357B /* FirebaseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1EB3961AA8E76700A0357B /* FirebaseFactory.swift */; };
+		7B1EB39A1AA8E76700A0357B /* SoundFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B1EB3981AA8E76700A0357B /* SoundFactory.m */; };
+		7B1EB39B1AA8E88000A0357B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B005190D199BDB2E0070659F /* Main.storyboard */; };
+		7B1EB39D1AA8E8A800A0357B /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B1EB39C1AA8E8A800A0357B /* Firebase.framework */; };
+		7B1EB39F1AA8E96A00A0357B /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B1EB39E1AA8E96A00A0357B /* libc++.dylib */; };
+		7B1EB3A11AA8E97200A0357B /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B1EB3A01AA8E97200A0357B /* libicucore.dylib */; };
+		7B1EB3A31AA8E97700A0357B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B1EB3A21AA8E97700A0357B /* CFNetwork.framework */; };
+		7B1EB3A51AA8E97D00A0357B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B1EB3A41AA8E97D00A0357B /* Security.framework */; };
+		7B1EB3A71AA8E98300A0357B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B1EB3A61AA8E98300A0357B /* SystemConfiguration.framework */; };
+		7B1EB3A91AA8EAE800A0357B /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B1EB3A81AA8EAE800A0357B /* iPhone.storyboard */; };
+		7B1EB3AB1AA8EFFF00A0357B /* RecordingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1EB3AA1AA8EFFF00A0357B /* RecordingScreen.swift */; };
+		B005190A199BDB2E0070659F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0051909199BDB2E0070659F /* AppDelegate.swift */; };
+		B0051911199BDB2E0070659F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0051910199BDB2E0070659F /* Images.xcassets */; };
+		B005191D199BDB2E0070659F /* CirquitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B005191C199BDB2E0070659F /* CirquitTests.swift */; };
+		B005192B199BDFAC0070659F /* RecordingsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B005192A199BDFAC0070659F /* RecordingsCollectionViewController.swift */; };
+		B005192D199BE0F40070659F /* RecordingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B005192C199BE0F40070659F /* RecordingCollectionViewCell.swift */; };
+		B075BD97199C268800CDA3AB /* RecorderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075BD96199C268800CDA3AB /* RecorderViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B0051917199BDB2E0070659F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B00518FC199BDB2E0070659F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B0051903199BDB2E0070659F;
+			remoteInfo = "AVFoundation Recorder";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7B1EB3951AA8E76600A0357B /* Cirquit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cirquit-Bridging-Header.h"; sourceTree = "<group>"; };
+		7B1EB3961AA8E76700A0357B /* FirebaseFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseFactory.swift; sourceTree = "<group>"; };
+		7B1EB3971AA8E76700A0357B /* SoundFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundFactory.h; sourceTree = "<group>"; };
+		7B1EB3981AA8E76700A0357B /* SoundFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundFactory.m; sourceTree = "<group>"; };
+		7B1EB39C1AA8E8A800A0357B /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
+		7B1EB39E1AA8E96A00A0357B /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		7B1EB3A01AA8E97200A0357B /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		7B1EB3A21AA8E97700A0357B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		7B1EB3A41AA8E97D00A0357B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		7B1EB3A61AA8E98300A0357B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		7B1EB3A81AA8EAE800A0357B /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone.storyboard; sourceTree = "<group>"; };
+		7B1EB3AA1AA8EFFF00A0357B /* RecordingScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordingScreen.swift; sourceTree = "<group>"; };
+		B0051904199BDB2E0070659F /* Cirquit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cirquit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0051908199BDB2E0070659F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0051909199BDB2E0070659F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B005190E199BDB2E0070659F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B0051910199BDB2E0070659F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B0051916199BDB2E0070659F /* CirquitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CirquitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B005191B199BDB2E0070659F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B005191C199BDB2E0070659F /* CirquitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CirquitTests.swift; sourceTree = "<group>"; };
+		B005192A199BDFAC0070659F /* RecordingsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordingsCollectionViewController.swift; sourceTree = "<group>"; };
+		B005192C199BE0F40070659F /* RecordingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordingCollectionViewCell.swift; sourceTree = "<group>"; };
+		B075BD96199C268800CDA3AB /* RecorderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecorderViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B0051901199BDB2E0070659F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B1EB3A71AA8E98300A0357B /* SystemConfiguration.framework in Frameworks */,
+				7B1EB3A51AA8E97D00A0357B /* Security.framework in Frameworks */,
+				7B1EB3A31AA8E97700A0357B /* CFNetwork.framework in Frameworks */,
+				7B1EB3A11AA8E97200A0357B /* libicucore.dylib in Frameworks */,
+				7B1EB39F1AA8E96A00A0357B /* libc++.dylib in Frameworks */,
+				7B1EB39D1AA8E8A800A0357B /* Firebase.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0051913199BDB2E0070659F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7B1EB3941AA8E74F00A0357B /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				7B1EB3961AA8E76700A0357B /* FirebaseFactory.swift */,
+				7B1EB3971AA8E76700A0357B /* SoundFactory.h */,
+				7B1EB3981AA8E76700A0357B /* SoundFactory.m */,
+				7B1EB3951AA8E76600A0357B /* Cirquit-Bridging-Header.h */,
+			);
+			name = Factories;
+			sourceTree = "<group>";
+		};
+		945DA1A91A9FAECC00712030 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B0051909199BDB2E0070659F /* AppDelegate.swift */,
+				B075BD96199C268800CDA3AB /* RecorderViewController.swift */,
+				B005192C199BE0F40070659F /* RecordingCollectionViewCell.swift */,
+				B005192A199BDFAC0070659F /* RecordingsCollectionViewController.swift */,
+				7B1EB3AA1AA8EFFF00A0357B /* RecordingScreen.swift */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		945DA1AA1A9FAED400712030 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B0051910199BDB2E0070659F /* Images.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		B00518FB199BDB2E0070659F = {
+			isa = PBXGroup;
+			children = (
+				7B1EB3A61AA8E98300A0357B /* SystemConfiguration.framework */,
+				7B1EB3A41AA8E97D00A0357B /* Security.framework */,
+				7B1EB3A21AA8E97700A0357B /* CFNetwork.framework */,
+				7B1EB3A01AA8E97200A0357B /* libicucore.dylib */,
+				7B1EB39E1AA8E96A00A0357B /* libc++.dylib */,
+				B0051906199BDB2E0070659F /* Cirquit */,
+				B0051919199BDB2E0070659F /* Cirquit Tests */,
+				B0051905199BDB2E0070659F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B0051905199BDB2E0070659F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B0051904199BDB2E0070659F /* Cirquit.app */,
+				B0051916199BDB2E0070659F /* CirquitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B0051906199BDB2E0070659F /* Cirquit */ = {
+			isa = PBXGroup;
+			children = (
+				7B1EB39C1AA8E8A800A0357B /* Firebase.framework */,
+				7B1EB3941AA8E74F00A0357B /* Factories */,
+				945DA1A91A9FAECC00712030 /* Classes */,
+				945DA1AA1A9FAED400712030 /* Resources */,
+				B0051907199BDB2E0070659F /* Supporting Files */,
+			);
+			path = Cirquit;
+			sourceTree = "<group>";
+		};
+		B0051907199BDB2E0070659F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B005190D199BDB2E0070659F /* Main.storyboard */,
+				7B1EB3A81AA8EAE800A0357B /* iPhone.storyboard */,
+				B0051908199BDB2E0070659F /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B0051919199BDB2E0070659F /* Cirquit Tests */ = {
+			isa = PBXGroup;
+			children = (
+				B005191C199BDB2E0070659F /* CirquitTests.swift */,
+				B005191A199BDB2E0070659F /* Supporting Files */,
+			);
+			path = "Cirquit Tests";
+			sourceTree = "<group>";
+		};
+		B005191A199BDB2E0070659F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B005191B199BDB2E0070659F /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B0051903199BDB2E0070659F /* Cirquit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B0051920199BDB2E0070659F /* Build configuration list for PBXNativeTarget "Cirquit" */;
+			buildPhases = (
+				B0051900199BDB2E0070659F /* Sources */,
+				B0051901199BDB2E0070659F /* Frameworks */,
+				B0051902199BDB2E0070659F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Cirquit;
+			productName = "AVFoundation Recorder";
+			productReference = B0051904199BDB2E0070659F /* Cirquit.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B0051915199BDB2E0070659F /* CirquitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B0051923199BDB2E0070659F /* Build configuration list for PBXNativeTarget "CirquitTests" */;
+			buildPhases = (
+				B0051912199BDB2E0070659F /* Sources */,
+				B0051913199BDB2E0070659F /* Frameworks */,
+				B0051914199BDB2E0070659F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B0051918199BDB2E0070659F /* PBXTargetDependency */,
+			);
+			name = CirquitTests;
+			productName = "AVFoundation RecorderTests";
+			productReference = B0051916199BDB2E0070659F /* CirquitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B00518FC199BDB2E0070659F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "MMT Digital";
+				TargetAttributes = {
+					B0051903199BDB2E0070659F = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					B0051915199BDB2E0070659F = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = B0051903199BDB2E0070659F;
+					};
+				};
+			};
+			buildConfigurationList = B00518FF199BDB2E0070659F /* Build configuration list for PBXProject "Cirquit" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B00518FB199BDB2E0070659F;
+			productRefGroup = B0051905199BDB2E0070659F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B0051903199BDB2E0070659F /* Cirquit */,
+				B0051915199BDB2E0070659F /* CirquitTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B0051902199BDB2E0070659F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0051911199BDB2E0070659F /* Images.xcassets in Resources */,
+				7B1EB3A91AA8EAE800A0357B /* iPhone.storyboard in Resources */,
+				7B1EB39B1AA8E88000A0357B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0051914199BDB2E0070659F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B0051900199BDB2E0070659F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B1EB3AB1AA8EFFF00A0357B /* RecordingScreen.swift in Sources */,
+				7B1EB39A1AA8E76700A0357B /* SoundFactory.m in Sources */,
+				B005192B199BDFAC0070659F /* RecordingsCollectionViewController.swift in Sources */,
+				B005190A199BDB2E0070659F /* AppDelegate.swift in Sources */,
+				7B1EB3991AA8E76700A0357B /* FirebaseFactory.swift in Sources */,
+				B075BD97199C268800CDA3AB /* RecorderViewController.swift in Sources */,
+				B005192D199BE0F40070659F /* RecordingCollectionViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0051912199BDB2E0070659F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B005191D199BDB2E0070659F /* CirquitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B0051918199BDB2E0070659F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B0051903199BDB2E0070659F /* Cirquit */;
+			targetProxy = B0051917199BDB2E0070659F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B005190D199BDB2E0070659F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B005190E199BDB2E0070659F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B005191E199BDB2E0070659F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B005191F199BDB2E0070659F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B0051921199BDB2E0070659F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Cirquit",
+				);
+				INFOPLIST_FILE = Cirquit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = Cirquit;
+				SWIFT_OBJC_BRIDGING_HEADER = "Cirquit/Cirquit-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B0051922199BDB2E0070659F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Cirquit",
+				);
+				INFOPLIST_FILE = Cirquit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = Cirquit;
+				SWIFT_OBJC_BRIDGING_HEADER = "Cirquit/Cirquit-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		B0051924199BDB2E0070659F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Cirquit/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = CirquitTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cirquit.app/Cirquit";
+			};
+			name = Debug;
+		};
+		B0051925199BDB2E0070659F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Cirquit/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = CirquitTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cirquit.app/Cirquit";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B00518FF199BDB2E0070659F /* Build configuration list for PBXProject "Cirquit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B005191E199BDB2E0070659F /* Debug */,
+				B005191F199BDB2E0070659F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B0051920199BDB2E0070659F /* Build configuration list for PBXNativeTarget "Cirquit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0051921199BDB2E0070659F /* Debug */,
+				B0051922199BDB2E0070659F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B0051923199BDB2E0070659F /* Build configuration list for PBXNativeTarget "CirquitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0051924199BDB2E0070659F /* Debug */,
+				B0051925199BDB2E0070659F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B00518FC199BDB2E0070659F /* Project object */;
+}
