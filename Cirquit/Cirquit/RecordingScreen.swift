@@ -94,7 +94,7 @@ class RecordingScreen: UIViewController {
         if recorder != nil && recorder.recording {
             recorder.stop()
             
-            var url = getMixSoundFileURL()!
+            var url = getMixedSoundFileURL()!
             var urlPath = url.path!
             var success = fileManager.fileExistsAtPath(urlPath)
             if (success)
@@ -134,9 +134,12 @@ class RecordingScreen: UIViewController {
         
         if player != nil && player.playing {
             player.stop()
-            var error: NSError?
-            var success = fileManager.removeItemAtURL(getMixSoundFileURL()!, error: &error)
         }
+        
+        var error: NSError?
+        var success = fileManager.removeItemAtURL(getMainSoundFileURL()!, error: &error)
+        success = fileManager.removeItemAtURL(getMixSoundFileURL()!, error: &error)
+        success = fileManager.removeItemAtURL(getMixedSoundFileURL()!, error: &error)
         
         if let navController = self.navigationController {
             navController.popViewControllerAnimated(true)
