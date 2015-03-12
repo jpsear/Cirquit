@@ -192,7 +192,7 @@ class RecordingScreen: UIViewController {
         
         var format = NSDateFormatter()
         format.dateFormat="yyyy-MM-dd-HH-mm-ss"
-        var currentFileName = "recording-\(format.stringFromDate(NSDate())).m4a"
+        var currentFileName = "CirquitRecording.m4a"
         
         var dirPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
         var docsDir: AnyObject = dirPaths[0]

@@ -62,7 +62,7 @@
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 Seconds Left" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZaA-TP-OAC">
                                 <rect key="frame" x="198" y="541" width="106" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -113,15 +113,27 @@
                                     </imageView>
                                 </subviews>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="G7a-4Z-xsq">
-                                <rect key="frame" x="16" y="402" width="53" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="G7a-4Z-xsq">
+                                <rect key="frame" x="16" y="407" width="90" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <state key="normal" title="Discard">
+                                <state key="normal" title=" Discard" image="icon-bin">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="btnTrash_Tap:" destination="1oY-Ij-cdk" eventType="touchDown" id="Iqq-AF-KVa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xdl-M1-XSd">
+                                <rect key="frame" x="230" y="407" width="74" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <state key="normal" title=" Mix" image="icon-arrow">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnTrash_Tap:" destination="1oY-Ij-cdk" eventType="touchDown" id="dMc-TK-x97"/>
+                                    <segue destination="9Ff-BW-iLy" kind="modal" id="wci-mC-yAq"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -142,6 +154,8 @@
         <image name="bg" width="320" height="568"/>
         <image name="button-play" width="130" height="147"/>
         <image name="button-record" width="149" height="149"/>
+        <image name="icon-arrow" width="22" height="21"/>
+        <image name="icon-bin" width="19" height="25"/>
         <image name="wave-bar-bg" width="331" height="91"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
