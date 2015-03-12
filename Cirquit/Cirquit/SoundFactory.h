@@ -14,6 +14,6 @@
 - (NSString*)convertSoundToString:(NSString*)soundFileName;
 - (void)convertStringToSound:(NSString*)soundString givingItTheFileName:(NSString*)soundFileName;
 
-- (void)mergeMySoundFile:(NSString*)mySoundFileName withFriendsSoundFile:(NSString*)friendsSoundFileName toCreateSoundFileNamed:(NSString*)mergedSoundFileName;
+- (void)mergeMySoundFile:(NSURL*)mySoundFileName withFriendsSoundFile:(NSURL*)friendsSoundFileName toCreateSoundFileNamed:(NSURL*)mergedSoundFileName;
 
 @end
