@@ -47,22 +47,33 @@ class RecordingScreen: UIViewController {
     @IBOutlet var btnRecord: UIButton!
     @IBAction func btnRecord_Tap(sender: UIButton) {
         
+        if recorder != nil && recorder.recording {
+            recorder.stop()
+        }
         
+        var setup = recorder == nil
+        recordWithPermission(setup)
+    }
+    
+    @IBAction func btnRecord_Released(sender: UIButton) {
+        
+        recordingEnded()
+    }
+    
+    func recordingEnded()
+    {
         if recorder != nil && recorder.recording {
             recorder.stop()
             self.performSegueWithIdentifier("MoveToPlayScreen", sender: self)
-            
-        } else {
-            var setup = recorder == nil
-            recordWithPermission(setup)
         }
     }
-
+    
     
     @IBOutlet var btnPlay: UIButton!
     @IBAction func btnPlay_Tap(sender: UIButton) {
         playLastRecording()
     }
+    
     
     
     @IBOutlet var btnTrash: UIButton!
