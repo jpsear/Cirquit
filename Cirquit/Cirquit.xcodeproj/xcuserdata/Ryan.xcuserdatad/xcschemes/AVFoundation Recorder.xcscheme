@@ -17,9 +17,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B0051903199BDB2E0070659F"
-            BuildableName = "AVFoundation Recorder.app"
-            BlueprintName = "AVFoundation Recorder"
-            ReferencedContainer = "container:AVFoundation Recorder.xcodeproj">
+            BuildableName = "Cirquit.app"
+            BlueprintName = "Cirquit"
+            ReferencedContainer = "container:Cirquit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -32,13 +32,14 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B0051903199BDB2E0070659F"
-            BuildableName = "AVFoundation Recorder.app"
-            BlueprintName = "AVFoundation Recorder"
-            ReferencedContainer = "container:AVFoundation Recorder.xcodeproj">
+            BuildableName = "Cirquit.app"
+            BlueprintName = "Cirquit"
+            ReferencedContainer = "container:Cirquit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -50,15 +51,6 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B0051903199BDB2E0070659F"
-            BuildableName = "AVFoundation Recorder.app"
-            BlueprintName = "AVFoundation Recorder"
-            ReferencedContainer = "container:AVFoundation Recorder.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

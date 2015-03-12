@@ -64,6 +64,7 @@ class RecordingScreen: UIViewController {
     {
         if recorder != nil && recorder.recording {
             recorder.stop()
+            lblTimer.text = "20 Seconds Left"
             self.performSegueWithIdentifier("MoveToPlayScreen", sender: self)
         }
     }
@@ -146,6 +147,7 @@ class RecordingScreen: UIViewController {
             if (sec == 20) {
                 // Cancel recording
                 timer.invalidate()
+                recordingEnded()
             }
             
         }
