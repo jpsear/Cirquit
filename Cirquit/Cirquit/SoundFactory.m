@@ -11,6 +11,8 @@
 @implementation SoundFactory
 
 
+
+
 - (NSString*)convertSoundToString:(NSString*)soundFileName {
 
     NSString *path = [[NSBundle mainBundle] pathForResource:soundFileName ofType:@"m4a"];
@@ -36,30 +38,21 @@
 }
 
 
-- (void)mergeMySoundFile:(NSString*)mySoundFileName withFriendsSoundFile:(NSString*)friendsSoundFileName toCreateSoundFileNamed:(NSString*)mergedSoundFileName {
+- (void)mergeMySoundFile:(NSURL*)mySoundFileName withFriendsSoundFile:(NSURL*)friendsSoundFileName toCreateSoundFileNamed:(NSURL*)mergedSoundFileName {
     
-    NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *docsDir = [dirPaths objectAtIndex:0];
     NSMutableArray *audioMixParams = [[NSMutableArray alloc] initWithObjects:nil];
-    NSString *exportFile = [docsDir stringByAppendingString:mergedSoundFileName];
-    
-    [self saveRecordingWithAudioMixParams:audioMixParams combiningMySoundFile:mySoundFileName withFriendsSoundFile:friendsSoundFileName andExportingToPath:exportFile];
+    [self saveRecordingWithAudioMixParams:audioMixParams combiningMySoundFile:mySoundFileName withFriendsSoundFile:friendsSoundFileName andExportingToPath:mergedSoundFileName];
 }
 
-- (IBAction)saveRecordingWithAudioMixParams:(NSMutableArray*)audioMixParams combiningMySoundFile:(NSString*)mySoundFileName withFriendsSoundFile:(NSString*)friendsSoundFileName andExportingToPath:(NSString*)exportFile
+- (IBAction)saveRecordingWithAudioMixParams:(NSMutableArray*)audioMixParams combiningMySoundFile:(NSURL*)mySoundFileName withFriendsSoundFile:(NSURL*)friendsSoundFileName andExportingToPath:(NSURL*)exportURL
 {
     AVMutableComposition *composition = [AVMutableComposition composition];
     audioMixParams = [[NSMutableArray alloc] initWithObjects:nil];
     
     //IMPLEMENT FOLLOWING CODE WHEN WANT TO MERGE ANOTHER AUDIO FILE
     //Add Audio Tracks to Composition
-    NSString *URLPath1 = [[NSBundle mainBundle] pathForResource:mySoundFileName ofType:@"m4a"];
-    NSString *URLPath2 = [[NSBundle mainBundle] pathForResource:friendsSoundFileName ofType:@"m4a"];
-    NSURL *assetURL1 = [NSURL fileURLWithPath:URLPath1];
-    [self setUpAndAddAudioAtPath:assetURL1 toComposition:composition usingAudioMixParams:audioMixParams];
-    
-    NSURL *assetURL2 = [NSURL fileURLWithPath:URLPath2];
-    [self setUpAndAddAudioAtPath:assetURL2 toComposition:composition usingAudioMixParams:audioMixParams];
+    [self setUpAndAddAudioAtPath:mySoundFileName toComposition:composition usingAudioMixParams:audioMixParams];
+    [self setUpAndAddAudioAtPath:friendsSoundFileName toComposition:composition usingAudioMixParams:audioMixParams];
     
     AVMutableAudioMix *audioMix = [AVMutableAudioMix audioMix];
     audioMix.inputParameters = [NSArray arrayWithArray:audioMixParams];
@@ -73,19 +66,26 @@
                                       presetName: AVAssetExportPresetAppleM4A];
     exporter.audioMix = audioMix;
     exporter.outputFileType = @"com.apple.m4a-audio";
-    NSURL *exportURL = [NSURL fileURLWithPath:exportFile];
     exporter.outputURL = exportURL;
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if ([fileManager fileExistsAtPath:[exportURL path]]) {
+        NSError *error;
+        if ([fileManager removeItemAtPath:[exportURL path] error:&error] == NO) {
+            NSLog(@"removeItemAtPath %@ error:%@", [exportURL path], error);
+        }
+    }
     
     // do the export
     [exporter exportAsynchronouslyWithCompletionHandler:^{
         int exportStatus = exporter.status;
         NSError *exportError = exporter.error;
         
+        NSLog(@"%d", exportStatus);
         switch (exportStatus) {
             case AVAssetExportSessionStatusFailed:
-                
+                NSLog (@"AVAssetExportSessionStatusFailed");
                 break;
-                
             case AVAssetExportSessionStatusCompleted: NSLog (@"AVAssetExportSessionStatusCompleted");
                 break;
             case AVAssetExportSessionStatusUnknown: NSLog (@"AVAssetExportSessionStatusUnknown"); break;

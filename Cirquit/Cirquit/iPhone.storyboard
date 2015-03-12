@@ -132,7 +132,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnTrash_Tap:" destination="1oY-Ij-cdk" eventType="touchDown" id="dMc-TK-x97"/>
+                                    <action selector="btnMix_Tap:" destination="1oY-Ij-cdk" eventType="touchDown" id="bme-i5-LtM"/>
                                     <segue destination="9Ff-BW-iLy" kind="modal" id="wci-mC-yAq"/>
                                 </connections>
                             </button>

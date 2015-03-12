@@ -12,10 +12,10 @@ import AVFoundation
 
 class RecordingScreen: UIViewController {
 
+    var fileManager = NSFileManager()
     var recorder: AVAudioRecorder!
     var player:AVAudioPlayer!
     var meterTimer:NSTimer!
-    var soundFileURL:NSURL?
     var recordSettings = [
         AVFormatIDKey: kAudioFormatAppleLossless,
         AVEncoderAudioQualityKey : AVAudioQuality.Max.rawValue,
@@ -23,6 +23,10 @@ class RecordingScreen: UIViewController {
         AVNumberOfChannelsKey: 2,
         AVSampleRateKey : 44100.0
     ]
+    
+    var currentFileName = "CirquitRecording.m4a"
+    var mixFileName = "CirquitRecordingForMix.m4a"
+    var mixedFileName = "CirquitRecordingMixed.m4a"
     
     @IBOutlet var lblTimer: UILabel!
 
@@ -37,7 +41,6 @@ class RecordingScreen: UIViewController {
         if (segue.identifier == "MoveToPlayScreen") {
             // pass data to next view
             let destinationVC = segue.destinationViewController as RecordingScreen
-            destinationVC.soundFileURL = soundFileURL
         }
         
     }
@@ -64,6 +67,22 @@ class RecordingScreen: UIViewController {
     {
         if recorder != nil && recorder.recording {
             recorder.stop()
+            
+            var url = getMixSoundFileURL()!
+            var urlPath = url.path!
+            var success = fileManager.fileExistsAtPath(urlPath)
+            if (success)
+            {
+                var instanceOfCustomObject: SoundFactory = SoundFactory()
+                instanceOfCustomObject.mergeMySoundFile(getMainSoundFileURL()!, withFriendsSoundFile: url, toCreateSoundFileNamed: getMixedSoundFileURL()!)
+            }
+            else
+            {
+                var error: NSError?
+                var successRemove = fileManager.removeItemAtURL(getMixedSoundFileURL()!, error: &error)
+                var successRename = fileManager.moveItemAtURL(getMainSoundFileURL()!, toURL: getMixedSoundFileURL()!, error: &error)
+            }
+            
             lblTimer.text = "20 Seconds Left"
             self.performSegueWithIdentifier("MoveToPlayScreen", sender: self)
         }
@@ -75,13 +94,21 @@ class RecordingScreen: UIViewController {
         playLastRecording()
     }
     
-    
+    @IBOutlet var btnMix: UIButton!
+    @IBAction func btnMix_Tap(sender: UIButton) {
+
+        // Rename File to save for merging
+        var error: NSError?
+        var success = fileManager.moveItemAtURL(getMainSoundFileURL()!, toURL: getMixSoundFileURL()!, error: &error)
+    }
     
     @IBOutlet var btnTrash: UIButton!
     @IBAction func btnTrash_Tap(sender: UIButton) {
         
         if player != nil && player.playing {
             player.stop()
+            var error: NSError?
+            var success = fileManager.removeItemAtURL(getMixSoundFileURL()!, error: &error)
         }
         
         if let navController = self.navigationController {
@@ -94,7 +121,7 @@ class RecordingScreen: UIViewController {
     func playLastRecording() {
         
         var error: NSError?
-        self.player = AVAudioPlayer(contentsOfURL: soundFileURL!, error: &error)
+        self.player = AVAudioPlayer(contentsOfURL: getMixedSoundFileURL()!, error: &error)
         if player == nil {
             if let e = error {
                 println(e.localizedDescription)
@@ -191,15 +218,8 @@ class RecordingScreen: UIViewController {
     
     
     func setupRecorder() {
-        
-        var format = NSDateFormatter()
-        format.dateFormat="yyyy-MM-dd-HH-mm-ss"
-        var currentFileName = "CirquitRecording.m4a"
-        
-        var dirPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
-        var docsDir: AnyObject = dirPaths[0]
-        var soundFilePath = docsDir.stringByAppendingPathComponent(currentFileName)
-        soundFileURL = NSURL(fileURLWithPath: soundFilePath)
+
+        var soundFileURL = getMainSoundFileURL()
         
         var error: NSError?
         recorder = AVAudioRecorder(URL: soundFileURL!, settings: recordSettings, error: &error)
@@ -210,6 +230,31 @@ class RecordingScreen: UIViewController {
             recorder.meteringEnabled = true
             recorder.prepareToRecord() // creates/overwrites the file at soundFileURL
         }
+    }
+    
+    
+    func getMixedSoundFileURL() -> NSURL?
+    {
+        return getSoundFileURL(mixedFileName)
+    }
+    func getMainSoundFileURL() -> NSURL?
+    {
+        return getSoundFileURL(currentFileName)
+    }
+    func getMixSoundFileURL() -> NSURL?
+    {
+        return getSoundFileURL(mixFileName)
+    }
+    
+    func getSoundFileURL(currentFileName: String!) -> NSURL?
+    {
+        var mainSoundFileURL:NSURL?
+        var dirPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        var docsDir: AnyObject = dirPaths[0]
+        var soundFilePath = docsDir.stringByAppendingPathComponent(currentFileName)
+        mainSoundFileURL = NSURL(fileURLWithPath: soundFilePath)
+
+        return mainSoundFileURL
     }
     
 }
