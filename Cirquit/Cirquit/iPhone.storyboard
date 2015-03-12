@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="9Ff-BW-iLy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="9Ff-BW-iLy">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -45,7 +45,9 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnRecord_Tap:" destination="iVp-Rg-SEf" eventType="touchDown" id="kgD-4q-1SA"/>
+                                    <action selector="btnRecord_Released:" destination="iVp-Rg-SEf" eventType="touchUpInside" id="PZ3-LT-dX3"/>
+                                    <action selector="btnRecord_Released:" destination="iVp-Rg-SEf" eventType="touchUpOutside" id="STg-kD-Mg0"/>
+                                    <action selector="btnRecord_Tap:" destination="iVp-Rg-SEf" eventType="touchDown" id="fee-SJ-9Kt"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" id="rJt-Gl-sFl">
