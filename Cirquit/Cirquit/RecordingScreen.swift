@@ -53,13 +53,15 @@ class RecordingScreen: UIViewController {
         waveBarView?.addSubview(waveForm)
     }
     
-    func startWaveformAnimate() {
-        println(view.frame.width);
-        UIView.animateWithDuration(20, delay: 0, options: UIViewAnimationOptions.CurveLinear, animations: {
+    func startWaveformAnimate() {        
+        
+        UIView.animateWithDuration(20, delay: 0, options: .CurveLinear, animations: {
             self.waveForm.layer.position.x = self.waveForm.frame.width / 2;
-        }, completion: { finished in
-            NSLog("ended")
-        })
+        }, completion: {
+                (finished: Bool) in
+                self.startWaveformAnimate();
+        });
+        
     }
 
     func resetWaveform() {
@@ -136,7 +138,6 @@ class RecordingScreen: UIViewController {
     func recordWithPermission(setup:Bool) {
         let session:AVAudioSession = AVAudioSession.sharedInstance()
         
-        startWaveformAnimate()
         
         // ios 8 and later
         if (session.respondsToSelector("requestRecordPermission:")) {
@@ -152,6 +153,9 @@ class RecordingScreen: UIViewController {
                         selector:"updateAudioMeter:",
                         userInfo:nil,
                         repeats:true)
+                    
+                    // Start waveform animation
+                    self.startWaveformAnimate()
                 }
             })
         }
@@ -171,7 +175,7 @@ class RecordingScreen: UIViewController {
             recorder.updateMeters()
             var apc0 = recorder.averagePowerForChannel(0)
             var peak0 = recorder.peakPowerForChannel(0)
-            
+    
             if (sec == 20) {
                 // Cancel recording
                 timer.invalidate()

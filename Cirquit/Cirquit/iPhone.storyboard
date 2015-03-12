@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="9Ff-BW-iLy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="9Ff-BW-iLy">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
@@ -74,6 +74,7 @@
                     <connections>
                         <outlet property="btnRecord" destination="njz-Xq-8xk" id="GZZ-Qf-U58"/>
                         <outlet property="lblTimer" destination="ZaA-TP-OAC" id="pKe-dm-avc"/>
+                        <outlet property="waveBarView" destination="rJt-Gl-sFl" id="Mwe-LX-7ex"/>
                         <segue destination="1oY-Ij-cdk" kind="push" identifier="MoveToPlayScreen" id="tWT-mf-OnA"/>
                     </connections>
                 </viewController>
