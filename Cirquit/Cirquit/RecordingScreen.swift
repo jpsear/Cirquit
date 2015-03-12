@@ -124,10 +124,19 @@ class RecordingScreen: UIViewController {
             let min:Int = Int(recorder.currentTime / 60)
             let sec:Int = Int(recorder.currentTime % 60)
             let s = "\(String(format: dFormat, min)):\(String(format: dFormat, sec))"
-            lblTimer.text = s
+            
+            let secondsLeft = 20 - sec;
+            lblTimer.text = secondsLeft.description + " Seconds Left"
+            
             recorder.updateMeters()
             var apc0 = recorder.averagePowerForChannel(0)
             var peak0 = recorder.peakPowerForChannel(0)
+            
+            if (sec == 20) {
+                // Cancel recording
+                timer.invalidate()
+            }
+            
         }
     }
     
