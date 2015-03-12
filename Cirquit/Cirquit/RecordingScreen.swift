@@ -28,13 +28,18 @@ class RecordingScreen: UIViewController {
     var mixFileName = "CirquitRecordingForMix.m4a"
     var mixedFileName = "CirquitRecordingMixed.m4a"
     
+
+    @IBOutlet var waveBarView: UIView!
+    let waveForm = UIView()
+
     @IBOutlet var lblTimer: UILabel!
 
     // EVENTS
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setSessionPlayback()
+        
+        setUpWaveform()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
@@ -43,6 +48,27 @@ class RecordingScreen: UIViewController {
             let destinationVC = segue.destinationViewController as RecordingScreen
         }
         
+    }
+    
+    func setUpWaveform() {
+        waveForm.backgroundColor = UIColor.whiteColor()
+        waveForm.layer.position = CGPointMake(320, 50)
+        waveForm.frame.size = CGSize(width: view.frame.width, height: 4)
+        waveBarView?.addSubview(waveForm)
+    }
+    
+    func startWaveformAnimate() {
+        println(view.frame.width);
+        UIView.animateWithDuration(20, delay: 0, options: UIViewAnimationOptions.CurveLinear, animations: {
+            self.waveForm.layer.position.x = self.waveForm.frame.width / 2;
+        }, completion: { finished in
+            NSLog("ended")
+        })
+    }
+
+    func resetWaveform() {
+        waveForm.layer.removeAllAnimations()
+        waveForm.layer.position.x = self.view.frame.width + waveForm.frame.width / 2
     }
     
     
@@ -85,6 +111,7 @@ class RecordingScreen: UIViewController {
             
             lblTimer.text = "20 Seconds Left"
             self.performSegueWithIdentifier("MoveToPlayScreen", sender: self)
+            resetWaveform()
         }
     }
     
@@ -136,6 +163,8 @@ class RecordingScreen: UIViewController {
     }
     func recordWithPermission(setup:Bool) {
         let session:AVAudioSession = AVAudioSession.sharedInstance()
+        
+        startWaveformAnimate()
         
         // ios 8 and later
         if (session.respondsToSelector("requestRecordPermission:")) {
