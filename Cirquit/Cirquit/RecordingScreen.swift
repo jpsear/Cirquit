@@ -110,6 +110,18 @@ class RecordingScreen: UIViewController {
     
     }
     
+    
+    func waveformToImage() -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(waveForm.bounds.size, true, 0.0)
+        let context = UIGraphicsGetCurrentContext()
+        waveForm.layer.renderInContext(context)
+        let waveformImage: UIImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext()
+        return waveformImage
+    }
+
+    
+    
     // ACTIONS
     @IBOutlet var btnRecord: UIButton!
     @IBAction func btnRecord_Tap(sender: UIButton) {
