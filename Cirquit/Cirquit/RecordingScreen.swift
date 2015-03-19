@@ -62,7 +62,7 @@ class RecordingScreen: UIViewController {
         
         for index in 0...100 {
             let position = secondWidth * CGFloat(index) + CGFloat(2)
-            let waveSecond = UIView(frame: CGRectMake(position, 0, secondWidth, 2))
+            let waveSecond = UIView(frame: CGRectMake(position, 0, secondWidth, 1))
             waveSecond.layer.cornerRadius = 0
             waveSecond.backgroundColor = UIColor.whiteColor()
             waveForm.addSubview(waveSecond)
@@ -100,7 +100,7 @@ class RecordingScreen: UIViewController {
             var totalHeight = 50 - number;
         
             
-            UIView.animateWithDuration(0.2, animations: {
+            UIView.animateWithDuration(0.1, animations: {
                 test.frame.size.height = CGFloat(totalHeight)
                 test.layer.position.y -= CGFloat(totalHeight / 2 - 1)
             })
