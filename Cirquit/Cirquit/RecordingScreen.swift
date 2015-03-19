@@ -42,7 +42,7 @@ class RecordingScreen: UIViewController {
         super.viewDidLoad()
         setSessionPlayback()
         
-        //setUpWaveform()
+        setUpWaveform()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
@@ -241,9 +241,9 @@ class RecordingScreen: UIViewController {
             var apc0 = recorder.averagePowerForChannel(0)
             var peak0 = recorder.peakPowerForChannel(0)
             
-            //currentSecond += 0.5
+            currentSecond += 0.5
             
-            //updateWaveform(sec, peak: peak0)
+            updateWaveform(sec, peak: peak0)
     
             if (sec == 20) {
                 // Cancel recording
