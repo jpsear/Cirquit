@@ -31,6 +31,9 @@ class RecordingScreen: UIViewController {
 
     @IBOutlet var waveBarView: UIView!
     let waveForm = UIView()
+    let waveSeconds = NSMutableArray()
+    
+    var currentSecond: CGFloat = 0
 
     @IBOutlet var lblTimer: UILabel!
 
@@ -39,7 +42,7 @@ class RecordingScreen: UIViewController {
         super.viewDidLoad()
         setSessionPlayback()
         
-        setUpWaveform()
+        //setUpWaveform()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
@@ -51,13 +54,24 @@ class RecordingScreen: UIViewController {
     }
     
     func setUpWaveform() {
-        waveForm.backgroundColor = UIColor.whiteColor()
-        waveForm.layer.position = CGPointMake(320, 50)
-        waveForm.frame.size = CGSize(width: view.frame.width, height: 4)
+        waveForm.layer.position = CGPointMake(320, waveBarView.frame.height / 2)
+        waveForm.frame.size = CGSize(width: view.frame.width, height: waveBarView.frame.height)
         waveBarView?.addSubview(waveForm)
+    
+        let secondWidth = CGFloat(2)
+        
+        for index in 0...100 {
+            let position = secondWidth * CGFloat(index) + CGFloat(2)
+            let waveSecond = UIView(frame: CGRectMake(position, 0, secondWidth, 2))
+            waveSecond.layer.cornerRadius = 0
+            waveSecond.backgroundColor = UIColor.whiteColor()
+            waveForm.addSubview(waveSecond)
+            waveSeconds.addObject(waveSecond)
+        }
+        
     }
     
-    func startWaveformAnimate() {        
+    func startWaveformAnimate() {
         
         UIView.animateWithDuration(20, delay: 0, options: .CurveLinear, animations: {
             self.waveForm.layer.position.x = self.waveForm.frame.width / 2;
@@ -73,6 +87,28 @@ class RecordingScreen: UIViewController {
         waveForm.layer.position.x = self.view.frame.width + waveForm.frame.width / 2
     }
     
+    func updateWaveform(second: Int, peak: Float) {
+        
+        
+        if (currentSecond % 2 == 0 && currentSecond < 100) {
+        
+            var test = waveSeconds.objectAtIndex(Int(currentSecond)) as UIView
+            test.backgroundColor = UIColor.whiteColor()
+        
+            var number = fabsf(peak)
+            
+            var totalHeight = 50 - number;
+        
+            
+            UIView.animateWithDuration(0.2, animations: {
+                test.frame.size.height = CGFloat(totalHeight)
+                test.layer.position.y -= CGFloat(totalHeight / 2 - 1)
+            })
+            
+            
+        }
+    
+    }
     
     // ACTIONS
     @IBOutlet var btnRecord: UIButton!
@@ -206,6 +242,10 @@ class RecordingScreen: UIViewController {
             recorder.updateMeters()
             var apc0 = recorder.averagePowerForChannel(0)
             var peak0 = recorder.peakPowerForChannel(0)
+            
+            //currentSecond += 0.5
+            
+            //updateWaveform(sec, peak: peak0)
     
             if (sec == 20) {
                 // Cancel recording
