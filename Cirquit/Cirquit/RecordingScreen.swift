@@ -8,7 +8,7 @@
 
 import UIKit
 import AVFoundation
-
+import MessageUI
 
 class RecordingScreen: UIViewController {
 
@@ -147,7 +147,7 @@ class RecordingScreen: UIViewController {
                 var successRename = fileManager.moveItemAtURL(getMainSoundFileURL()!, toURL: getMixedSoundFileURL()!, error: &error)
             }
             
-            lblTimer.text = "20 Seconds Left"
+            lblTimer.text = "20 SECONDS LEFT"
             self.performSegueWithIdentifier("MoveToPlayScreen", sender: self)
             resetWaveform()
         }
@@ -179,9 +179,7 @@ class RecordingScreen: UIViewController {
         success = fileManager.removeItemAtURL(getMixSoundFileURL()!, error: &error)
         success = fileManager.removeItemAtURL(getMixedSoundFileURL()!, error: &error)
         
-        if let navController = self.navigationController {
-            navController.popViewControllerAnimated(true)
-        }
+        
     }
     
     
@@ -333,6 +331,34 @@ class RecordingScreen: UIViewController {
         return mainSoundFileURL
     }
     
+    
+    @IBAction func showEmail(sender : AnyObject) {
+        var emailTitle = "Mix from Cirquit"
+        var messageBody = "I've just recorded the following mix using Cirquit!"
+        var mc: MFMailComposeViewController = MFMailComposeViewController()
+        mc.mailComposeDelegate = self
+        mc.setSubject(emailTitle)
+        mc.setMessageBody(messageBody, isHTML: false)
+        
+        self.presentViewController(mc, animated: true, completion: nil)
+    }
+    
+    func mailComposeController(controller:MFMailComposeViewController, didFinishWithResult result:MFMailComposeResult, error:NSError) {
+        switch result.value {
+        case MFMailComposeResultCancelled.value:
+            println("Mail cancelled")
+        case MFMailComposeResultSaved.value:
+            println("Mail saved")
+        case MFMailComposeResultSent.value:
+            println("Mail sent")
+        case MFMailComposeResultFailed.value:
+            println("Mail sent failure: \(error.localizedDescription)")
+        default:
+            break
+        }
+        self.dismissViewControllerAnimated(false, completion: nil)
+    }
+    
 }
 
 
@@ -373,3 +399,11 @@ extension RecordingScreen : AVAudioPlayerDelegate {
         println("\(error.localizedDescription)")
     }
 }
+
+extension RecordingScreen : MFMailComposeViewControllerDelegate {
+
+    
+
+}
+
+
