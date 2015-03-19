@@ -105,9 +105,19 @@
 		945DA1AA1A9FAED400712030 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				947F65461ABB6DDA00553C7C /* Fonts */,
 				B0051910199BDB2E0070659F /* Images.xcassets */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		947F65461ABB6DDA00553C7C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				7B8F9EC51ABB616F00447534 /* Lato-Black.ttf */,
+				7B8F9EC61ABB616F00447534 /* Lato-Regular.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		B00518FB199BDB2E0070659F = {
@@ -131,8 +141,6 @@
 		B0051906199BDB2E0070659F /* Cirquit */ = {
 			isa = PBXGroup;
 			children = (
-				7B8F9EC51ABB616F00447534 /* Lato-Black.ttf */,
-				7B8F9EC61ABB616F00447534 /* Lato-Regular.ttf */,
 				7B8F9EC11ABB461500447534 /* Utilities */,
 				7B1EB3941AA8E74F00A0357B /* Factories */,
 				945DA1A91A9FAECC00712030 /* Classes */,
