@@ -340,6 +340,12 @@ class RecordingScreen: UIViewController {
         mc.setSubject(emailTitle)
         mc.setMessageBody(messageBody, isHTML: false)
         
+        
+        let url = getMixedSoundFileURL()
+        let data = NSData(contentsOfURL: url!)
+        
+        mc.addAttachmentData(data, mimeType: "audio/mp4 .m4a", fileName: "My Cirquit Mix.m4a")
+        
         self.presentViewController(mc, animated: true, completion: nil)
     }
     
