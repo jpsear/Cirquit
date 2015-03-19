@@ -54,19 +54,23 @@ class RecordingScreen: UIViewController {
     }
     
     func setUpWaveform() {
-        waveForm.layer.position = CGPointMake(320, waveBarView.frame.height / 2)
-        waveForm.frame.size = CGSize(width: view.frame.width, height: waveBarView.frame.height)
-        waveBarView?.addSubview(waveForm)
-    
-        let secondWidth = CGFloat(2)
         
-        for index in 0...100 {
-            let position = secondWidth * CGFloat(index) + CGFloat(2)
-            let waveSecond = UIView(frame: CGRectMake(position, 0, secondWidth, 2))
-            waveSecond.layer.cornerRadius = 0
-            waveSecond.backgroundColor = UIColor.whiteColor()
-            waveForm.addSubview(waveSecond)
-            waveSeconds.addObject(waveSecond)
+        if (waveBarView != nil)
+        {
+            waveForm.layer.position = CGPointMake(320, waveBarView.frame.height / 2)
+            waveForm.frame.size = CGSize(width: view.frame.width, height: waveBarView.frame.height)
+            waveBarView?.addSubview(waveForm)
+
+            let secondWidth = CGFloat(2)
+            
+            for index in 0...100 {
+                let position = secondWidth * CGFloat(index) + CGFloat(2)
+                let waveSecond = UIView(frame: CGRectMake(position, 0, secondWidth, 2))
+                waveSecond.layer.cornerRadius = 0
+                waveSecond.backgroundColor = UIColor.whiteColor()
+                waveForm.addSubview(waveSecond)
+                waveSeconds.addObject(waveSecond)
+            }
         }
         
     }
@@ -179,7 +183,9 @@ class RecordingScreen: UIViewController {
         success = fileManager.removeItemAtURL(getMixSoundFileURL()!, error: &error)
         success = fileManager.removeItemAtURL(getMixedSoundFileURL()!, error: &error)
         
-        
+        if let navController = self.navigationController {
+            navController.popViewControllerAnimated(true)
+        }
     }
     
     
@@ -235,7 +241,7 @@ class RecordingScreen: UIViewController {
             let s = "\(String(format: dFormat, min)):\(String(format: dFormat, sec))"
             
             let secondsLeft = 20 - sec;
-            lblTimer.text = secondsLeft.description + " Seconds Left"
+            lblTimer.text = secondsLeft.description + " SECONDS LEFT"
             
             recorder.updateMeters()
             var apc0 = recorder.averagePowerForChannel(0)

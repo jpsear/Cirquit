@@ -123,7 +123,7 @@
                         <outlet property="btnRecord" destination="njz-Xq-8xk" id="GZZ-Qf-U58"/>
                         <outlet property="lblTimer" destination="ZaA-TP-OAC" id="pKe-dm-avc"/>
                         <outlet property="waveBarView" destination="rJt-Gl-sFl" id="Mwe-LX-7ex"/>
-                        <segue destination="1oY-Ij-cdk" kind="modal" identifier="MoveToPlayScreen" modalTransitionStyle="flipHorizontal" id="tWT-mf-OnA"/>
+                        <segue destination="1oY-Ij-cdk" kind="push" identifier="MoveToPlayScreen" id="tWT-mf-OnA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HI0-Uc-01j" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -173,7 +173,6 @@
                                 </state>
                                 <connections>
                                     <action selector="btnTrash_Tap:" destination="1oY-Ij-cdk" eventType="touchDown" id="Iqq-AF-KVa"/>
-                                    <segue destination="iVp-Rg-SEf" kind="modal" modalTransitionStyle="flipHorizontal" id="FYv-lH-E1c"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LISTEN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xMZ-yP-VDA">
@@ -239,8 +238,5 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="iwP-w3-mTa"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
