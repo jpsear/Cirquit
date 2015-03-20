@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="9Ff-BW-iLy">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -71,6 +70,11 @@
                                         <rect key="frame" x="0.0" y="0.0" width="322" height="103"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
+                                    <view hidden="YES" contentMode="scaleToFill" id="RNZ-dG-kvd">
+                                        <rect key="frame" x="0.0" y="50" width="322" height="1"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="READY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dXZ-ou-o2I">
                                         <rect key="frame" x="123" y="40" width="75" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -121,7 +125,11 @@
                     <navigationItem key="navigationItem" id="7RI-7Y-jtn"/>
                     <connections>
                         <outlet property="btnRecord" destination="njz-Xq-8xk" id="GZZ-Qf-U58"/>
+                        <outlet property="lblReady" destination="dXZ-ou-o2I" id="iWU-xc-TYx"/>
                         <outlet property="lblTimer" destination="ZaA-TP-OAC" id="pKe-dm-avc"/>
+                        <outlet property="pnlCompleteLine" destination="RNZ-dG-kvd" id="2gm-Cq-boS"/>
+                        <outlet property="pnlLineLeft" destination="HOi-sO-18A" id="3Tm-jy-Ft8"/>
+                        <outlet property="pnlLineRight" destination="FPK-eC-KEa" id="ES6-Qz-H9o"/>
                         <outlet property="waveBarView" destination="rJt-Gl-sFl" id="Mwe-LX-7ex"/>
                         <segue destination="1oY-Ij-cdk" kind="push" identifier="MoveToPlayScreen" id="tWT-mf-OnA"/>
                     </connections>
@@ -217,6 +225,7 @@
                     <connections>
                         <outlet property="btnPlay" destination="mhD-8E-1kR" id="cKe-hV-yhi"/>
                         <outlet property="btnTrash" destination="G7a-4Z-xsq" id="aCl-ht-mhB"/>
+                        <outlet property="waveBarView" destination="pzR-XI-YFR" id="HBo-Bg-VpV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vhl-Fc-Fdf" userLabel="First Responder" sceneMemberID="firstResponder"/>

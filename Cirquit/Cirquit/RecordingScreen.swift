@@ -30,7 +30,11 @@ class RecordingScreen: UIViewController {
     
 
     @IBOutlet var waveBarView: UIView!
-    let waveForm = UIView()
+    var waveForm = UIView()
+    @IBOutlet var pnlCompleteLine: UIView!
+    @IBOutlet var pnlLineLeft: UIView!
+    @IBOutlet var pnlLineRight: UIView!
+    @IBOutlet var lblReady: UILabel!
     let waveSeconds = NSMutableArray()
     
     var currentSecond: CGFloat = 0
@@ -42,6 +46,9 @@ class RecordingScreen: UIViewController {
         super.viewDidLoad()
         setSessionPlayback()
         
+    }
+    
+    override func viewWillAppear(animated: Bool) {
         setUpWaveform()
     }
     
@@ -57,27 +64,45 @@ class RecordingScreen: UIViewController {
         
         if (waveBarView != nil)
         {
-            waveForm.layer.position = CGPointMake(320, waveBarView.frame.height / 2)
-            waveForm.frame.size = CGSize(width: view.frame.width, height: waveBarView.frame.height)
+            for index in waveForm.subviews
+            {
+                index.removeFromSuperview()
+            }
+            
+            waveForm = UIView(frame: CGRectMake(
+                (waveBarView.frame.width / 2), //x
+                0, //y
+                1, //width
+                1 //height
+                )
+            )
+            
+            //waveForm.layer.position = CGPointMake(320, (waveBarView.frame.height / 2) + 2)
+            //waveForm.frame.size = CGSize(width: view.frame.width, height: waveBarView.frame.height)
             waveBarView?.addSubview(waveForm)
 
-            let secondWidth = CGFloat(2)
+            //let secondWidth = CGFloat(2)
             
-            for index in 0...100 {
-                let position = secondWidth * CGFloat(index) + CGFloat(2)
-                let waveSecond = UIView(frame: CGRectMake(position, 0, secondWidth, 1))
-                waveSecond.layer.cornerRadius = 0
-                waveSecond.backgroundColor = UIColor.whiteColor()
-                waveForm.addSubview(waveSecond)
-                waveSeconds.addObject(waveSecond)
-            }
+//            for index in 0...100 {
+//                let position = secondWidth * CGFloat(index) + CGFloat(2)
+//                let waveSecond = UIView(frame: CGRectMake(position, 0, secondWidth, 1))
+//                waveSecond.layer.cornerRadius = 0
+//                waveSecond.backgroundColor = UIColor.whiteColor()
+//                waveForm.addSubview(waveSecond)
+//                waveSeconds.addObject(waveSecond)
+//            }
         }
     }
     
     func startWaveformAnimate() {
         
+        pnlCompleteLine.hidden = false
+        pnlLineLeft.hidden = true
+        pnlLineRight.hidden = true
+        lblReady.hidden = true
+        
         UIView.animateWithDuration(20, delay: 0, options: .CurveLinear, animations: {
-            self.waveForm.layer.position.x = self.waveForm.frame.width / 2;
+            self.waveForm.layer.position.x = (self.waveBarView.frame.width - 233) / 2;
         }, completion: {
                 (finished: Bool) in
                 self.startWaveformAnimate();
@@ -86,30 +111,51 @@ class RecordingScreen: UIViewController {
     }
 
     func resetWaveform() {
+        spacing = 0
         waveForm.layer.removeAllAnimations()
         waveForm.layer.position.x = self.view.frame.width + waveForm.frame.width / 2
+        
+        pnlCompleteLine.hidden = true
+        pnlLineLeft.hidden = false
+        pnlLineRight.hidden = false
+        lblReady.hidden = false
     }
     
+    var spacing = CGFloat(0);
     func updateWaveform(second: Int, peak: Float) {
         
+        var frm = waveForm.frame
+        frm.size.width = frm.size.width + 3
+        waveForm.frame = frm
         
-        if (currentSecond % 2 == 0 && currentSecond < 100) {
+        let secondWidth = CGFloat(2)
         
-            var test = waveSeconds.objectAtIndex(Int(currentSecond)) as UIView
-            test.backgroundColor = UIColor.whiteColor()
+        var number = fabsf(peak)
+        var totalHeight = CGFloat(50 - number);
         
-            var number = fabsf(peak)
-            
-            var totalHeight = 50 - number;
+        NSLog("%@", totalHeight)
+
         
-            
+            var singleWave = UIView(frame: CGRectMake(
+                currentSecond + spacing, //x
+                (waveBarView.frame.height / 2) + 3, //y
+                secondWidth, //width
+                totalHeight //height
+                )
+            )
+            //singleWave.bounds = CGRectInset(singleWave.frame, 2.0, 0);
+            singleWave.layer.cornerRadius = 0
+            singleWave.backgroundColor = UIColor.clearColor()
+            waveForm.addSubview(singleWave)
+
             UIView.animateWithDuration(0.1, animations: {
-                test.frame.size.height = CGFloat(totalHeight)
-                test.layer.position.y -= CGFloat(totalHeight / 2 - 1)
+                singleWave.backgroundColor = UIColor.whiteColor()
+                singleWave.layer.position.y -= CGFloat(totalHeight / 2 - 1)
+                singleWave.frame.size.height = CGFloat(totalHeight)
             })
-            
-            
-        }
+        
+        spacing += 3
+        //}
     
     }
     
@@ -230,7 +276,7 @@ class RecordingScreen: UIViewController {
                         self.setupRecorder()
                     }
                     self.recorder.record()
-                    self.meterTimer = NSTimer.scheduledTimerWithTimeInterval(0.1,
+                    self.meterTimer = NSTimer.scheduledTimerWithTimeInterval(0.299,
                         target:self,
                         selector:"updateAudioMeter:",
                         userInfo:nil,
