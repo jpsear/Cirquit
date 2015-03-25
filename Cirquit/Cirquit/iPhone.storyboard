@@ -72,7 +72,7 @@
                                     </imageView>
                                     <view hidden="YES" contentMode="scaleToFill" id="RNZ-dG-kvd">
                                         <rect key="frame" x="0.0" y="50" width="322" height="1"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="READY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dXZ-ou-o2I">
@@ -168,6 +168,16 @@
                                         <rect key="frame" x="0.0" y="0.0" width="322" height="103"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
+                                    <view hidden="YES" contentMode="scaleToFill" id="SPc-2E-4Ik">
+                                        <rect key="frame" x="0.0" y="50" width="322" height="1"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="lcp-BC-Bc1">
+                                        <rect key="frame" x="0.0" y="0.0" width="321" height="93"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </imageView>
                                 </subviews>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="G7a-4Z-xsq">
@@ -225,6 +235,7 @@
                     <connections>
                         <outlet property="btnPlay" destination="mhD-8E-1kR" id="cKe-hV-yhi"/>
                         <outlet property="btnTrash" destination="G7a-4Z-xsq" id="aCl-ht-mhB"/>
+                        <outlet property="imgLastWaveForm" destination="lcp-BC-Bc1" id="aKO-Fc-eXF"/>
                         <outlet property="waveBarView" destination="pzR-XI-YFR" id="HBo-Bg-VpV"/>
                     </connections>
                 </viewController>

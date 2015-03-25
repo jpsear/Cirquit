@@ -29,8 +29,10 @@ class RecordingScreen: UIViewController {
     var mixedFileName = "CirquitRecordingMixed.m4a"
     
 
+    @IBOutlet var imgLastWaveForm: UIImageView!
     @IBOutlet var waveBarView: UIView!
-    var waveForm = UIView()
+    var waveForm: UIView!
+    var lastWaveFormImage: UIImage!
     @IBOutlet var pnlCompleteLine: UIView!
     @IBOutlet var pnlLineLeft: UIView!
     @IBOutlet var pnlLineRight: UIView!
@@ -56,41 +58,59 @@ class RecordingScreen: UIViewController {
         if (segue.identifier == "MoveToPlayScreen") {
             // pass data to next view
             let destinationVC = segue.destinationViewController as RecordingScreen
+            destinationVC.lastWaveFormImage = waveformToImage()
         }
         
     }
     
     func setUpWaveform() {
         
+        currentSecond = 0
+        
+        if (self.meterTimer != nil)
+        {
+            self.meterTimer.invalidate()
+        }
+        
         if (waveBarView != nil)
         {
-            for index in waveForm.subviews
+            if (waveForm != nil)
             {
-                index.removeFromSuperview()
+                for index in waveForm.subviews
+                {
+                    index.removeFromSuperview()
+                }
             }
             
-            waveForm = UIView(frame: CGRectMake(
-                (waveBarView.frame.width / 2), //x
-                0, //y
-                1, //width
-                1 //height
+            if (lastWaveFormImage != nil)
+            {
+                imgLastWaveForm.image = lastWaveFormImage
+            }
+            else
+            {
+                waveForm = UIView(frame: CGRectMake(
+                    (waveBarView.frame.width / 2), //x
+                    0, //y
+                    1, //width
+                    1 //height
+                    )
                 )
-            )
-            
-            //waveForm.layer.position = CGPointMake(320, (waveBarView.frame.height / 2) + 2)
-            //waveForm.frame.size = CGSize(width: view.frame.width, height: waveBarView.frame.height)
-            waveBarView?.addSubview(waveForm)
+                
+                //waveForm.layer.position = CGPointMake(320, (waveBarView.frame.height / 2) + 2)
+                //waveForm.frame.size = CGSize(width: view.frame.width, height: waveBarView.frame.height)
+                waveBarView?.addSubview(waveForm)
 
-            //let secondWidth = CGFloat(2)
-            
-//            for index in 0...100 {
-//                let position = secondWidth * CGFloat(index) + CGFloat(2)
-//                let waveSecond = UIView(frame: CGRectMake(position, 0, secondWidth, 1))
-//                waveSecond.layer.cornerRadius = 0
-//                waveSecond.backgroundColor = UIColor.whiteColor()
-//                waveForm.addSubview(waveSecond)
-//                waveSeconds.addObject(waveSecond)
-//            }
+                //let secondWidth = CGFloat(2)
+                
+    //            for index in 0...100 {
+    //                let position = secondWidth * CGFloat(index) + CGFloat(2)
+    //                let waveSecond = UIView(frame: CGRectMake(position, 0, secondWidth, 1))
+    //                waveSecond.layer.cornerRadius = 0
+    //                waveSecond.backgroundColor = UIColor.whiteColor()
+    //                waveForm.addSubview(waveSecond)
+    //                waveSeconds.addObject(waveSecond)
+    //            }
+            }
         }
     }
     
@@ -104,8 +124,7 @@ class RecordingScreen: UIViewController {
         UIView.animateWithDuration(20, delay: 0, options: .CurveLinear, animations: {
             self.waveForm.layer.position.x = (self.waveBarView.frame.width - 233) / 2;
         }, completion: {
-                (finished: Bool) in
-                self.startWaveformAnimate();
+            (finished: Bool) in
         });
         
     }
@@ -131,7 +150,11 @@ class RecordingScreen: UIViewController {
         let secondWidth = CGFloat(2)
         
         var number = fabsf(peak)
-        var totalHeight = CGFloat(50 - number);
+        var totalHeight = CGFloat(70 - (number * 1.35));
+        if (totalHeight < 1)
+        {
+            totalHeight = 1;
+        }
         
         NSLog("%@", totalHeight)
 
@@ -140,7 +163,7 @@ class RecordingScreen: UIViewController {
                 currentSecond + spacing, //x
                 (waveBarView.frame.height / 2) + 3, //y
                 secondWidth, //width
-                totalHeight //height
+                1 //height
                 )
             )
             //singleWave.bounds = CGRectInset(singleWave.frame, 2.0, 0);
@@ -161,9 +184,9 @@ class RecordingScreen: UIViewController {
     
     
     func waveformToImage() -> UIImage {
-        UIGraphicsBeginImageContextWithOptions(waveForm.bounds.size, true, 0.0)
+        UIGraphicsBeginImageContextWithOptions(waveBarView.bounds.size, false, 0.0)
         let context = UIGraphicsGetCurrentContext()
-        waveForm.layer.renderInContext(context)
+        waveBarView.drawViewHierarchyInRect(waveBarView.bounds, afterScreenUpdates: true)
         let waveformImage: UIImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext()
         return waveformImage
@@ -226,6 +249,10 @@ class RecordingScreen: UIViewController {
         // Rename File to save for merging
         var error: NSError?
         var success = fileManager.moveItemAtURL(getMainSoundFileURL()!, toURL: getMixSoundFileURL()!, error: &error)
+        
+        if player != nil && player.playing {
+            player.stop()
+        }
     }
     
     @IBOutlet var btnTrash: UIButton!
