@@ -159,23 +159,23 @@ class RecordingScreen: UIViewController {
         NSLog("%@", totalHeight)
 
         
-            var singleWave = UIView(frame: CGRectMake(
-                currentSecond + spacing, //x
-                (waveBarView.frame.height / 2) + 3, //y
-                secondWidth, //width
-                1 //height
-                )
+        var singleWave = UIView(frame: CGRectMake(
+            currentSecond + spacing, //x
+            (waveBarView.frame.height / 2) + 3, //y
+            secondWidth, //width
+            1 //height
             )
-            //singleWave.bounds = CGRectInset(singleWave.frame, 2.0, 0);
-            singleWave.layer.cornerRadius = 0
-            singleWave.backgroundColor = UIColor.clearColor()
-            waveForm.addSubview(singleWave)
+        )
+        //singleWave.bounds = CGRectInset(singleWave.frame, 2.0, 0);
+        singleWave.layer.cornerRadius = 0
+        singleWave.backgroundColor = UIColor.clearColor()
+        waveForm.addSubview(singleWave)
 
-            UIView.animateWithDuration(0.1, animations: {
-                singleWave.backgroundColor = UIColor.whiteColor()
-                singleWave.layer.position.y -= CGFloat(totalHeight / 2 - 1)
-                singleWave.frame.size.height = CGFloat(totalHeight)
-            })
+        UIView.animateWithDuration(0.1, animations: {
+            singleWave.backgroundColor = UIColor.whiteColor()
+            singleWave.layer.position.y -= CGFloat(totalHeight / 2 - 1)
+            singleWave.frame.size.height = CGFloat(totalHeight)
+        })
         
         spacing += 3
         //}
@@ -240,7 +240,19 @@ class RecordingScreen: UIViewController {
     
     @IBOutlet var btnPlay: UIButton!
     @IBAction func btnPlay_Tap(sender: UIButton) {
-        playLastRecording()
+        
+        if (player != nil && player.playing)
+        {
+            let playImage = UIImage(named: "button-play") as UIImage?
+            btnPlay.setImage(playImage, forState: .Normal)
+            player.stop()
+        }
+        else
+        {
+            let stopImage = UIImage(named: "button-stop") as UIImage?
+            btnPlay.setImage(stopImage, forState: .Normal)
+            playLastRecording()
+        }
     }
     
     @IBOutlet var btnMix: UIButton!
